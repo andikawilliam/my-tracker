@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: transparent; /* Required for transparent window */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none; /* Prevent text selection */
+  }
+  
+  #app-container {
+    background-color: rgba(34, 34, 34, 0.85); /* Semi-transparent dark grey */
+    border-radius: 8px; /* Slightly smaller rounded corners */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid #444;
+    -webkit-app-region: drag; /* THE WHOLE WINDOW IS DRAGGABLE */
+    padding: 0 2px; /* Tighter padding */
+    box-sizing: border-box;
+    backdrop-filter: blur(4px); /* Optional: Adds blur behind transparency */
+  }
+  
+  #top-row {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center timer */
+    width: 100%;
+    padding: 0 4px;
+    box-sizing: border-box;
+    margin-bottom: 2px; /* Reduced margin */
+    margin-top: 2px;
+  }
+
+  #timer {
+    font-size: 20px; /* Smaller font for tighter fit */
+    font-weight: bold;
+    font-variant-numeric: tabular-nums; /* Monospaced numbers */
+    text-shadow: 0 0 2px rgba(0,0,0,0.5);
+    text-align: center;
+    margin-left: 0; /* Remove offset */
+  }
+
+  #close-btn {
+    position: absolute; /* Absolute positioning */
+    top: 4px;
+    right: 4px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 12px; /* Smaller close button */
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-app-region: no-drag; /* CRITICAL: Make clickable */
+    padding: 0px 4px;
+    border-radius: 4px;
+    line-height: 1;
+  }
+  
+  #close-btn:hover {
+    color: white;
+    background-color: #c42b1c; /* Windows red for close */
+  }
+  
+  #controls {
+    display: flex;
+    gap: 4px; /* Reduced gap */
+    -webkit-app-region: no-drag; /* CRITICAL: Make buttons clickable */
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 2px;
+  }
+  
+  button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 2px 8px; /* Smaller padding */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px; /* Smaller font */
+    transition: background-color 0.2s;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #444;
+  }
+  
+  button:active:not(:disabled) {
+    background-color: #555;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  
+  #toggle-btn {
+    background-color: #1b5e20; /* Default to Start (Green) */
+    border-color: #2e7d32;
+    min-width: 40px; /* Ensure sufficient width for text change */
+  }
+
+  #toggle-btn:hover:not(:disabled) {
+    background-color: #2e7d32;
+  }
+
+  /* Class for Stop state */
+  #toggle-btn.running {
+    background-color: #b71c1c; /* Stop (Red) */
+    border-color: #c62828;
+  }
+  
+  #toggle-btn.running:hover:not(:disabled) {
+    background-color: #c62828;
+  }
